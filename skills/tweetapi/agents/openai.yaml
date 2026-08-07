@@ -1,0 +1,15 @@
+interface:
+  display_name: "TweetAPI"
+  short_description: "Safe read-only Twitter data workflows"
+  default_prompt: "Use $tweetapi to add a bounded read-only public Twitter data lookup to this project."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "tweetapi"
+      description: "TweetAPI hosted read-only MCP server"
+      transport: "streamable_http"
+      url: "https://mcp.tweetapi.com/mcp"
+
+policy:
+  allow_implicit_invocation: true
