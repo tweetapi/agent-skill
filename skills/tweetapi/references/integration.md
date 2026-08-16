@@ -56,6 +56,8 @@ Never loop until the cursor is empty without a separate hard limit.
 - Assert that the API key never appears in returned errors or logs.
 - Do not call the live API from unit tests, continuous integration, previews, or build steps.
 
-## Avoid undocumented contracts
+## Use the published contract
 
-No public OpenAPI specification is listed in the current documentation index. Do not generate a client against a guessed schema. Use the public endpoint documentation and keep response parsing defensive until a canonical specification is published.
+Use <https://tweetapi.com/openapi-v2.json> for contract-aware tooling or client generation. The full Postman collection at <https://tweetapi.com/postman-v2.json> is generated from that OpenAPI document, and <https://tweetapi.com/postman-quickstart-v2.json> provides a smaller read-only onboarding collection.
+
+Do not generate clients from a guessed or copied schema. The published contract covers the wider customer-facing `/tw-v2` API, including operations outside this skill's read-only boundary, so select operations deliberately and keep authentication, quota, error, and partial-response handling explicit.

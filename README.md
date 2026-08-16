@@ -87,7 +87,7 @@ The continuous-integration workflow runs both checks without making a live Tweet
 
 ## Current source policy
 
-The skill links to the canonical public documentation rather than copying a complete endpoint catalog. The current public index does not advertise an OpenAPI specification or Postman collection, so this repository does not invent either artifact.
+The skill links to canonical public documentation and contract artifacts rather than copying an endpoint catalog. TweetAPI publishes a maintained OpenAPI specification, a full Postman collection generated from that specification, and a separate read-only Postman quick start. Their current URLs and boundaries live in `skills/tweetapi/references/sources.md`.
 
 ## License
 

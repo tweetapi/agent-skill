@@ -60,6 +60,6 @@ Every live data request consumes quota. Retries and subsequent pages can consume
 
 ## Preserve source accuracy
 
-The public product documentation covers a wider product than this skill. Do not infer that every documented endpoint is allowed here. Do not invent an OpenAPI URL, Postman collection, SDK method, or MCP tool name. Verify current details from the sources reference.
+The public product documentation and contract artifacts cover a wider product than this skill. Do not infer that every OpenAPI operation or Postman request is allowed here. Use only the canonical artifact URLs in the sources reference, and do not invent an alternative URL, SDK method, or MCP tool name.
 
 When sources disagree, report the conflict and avoid a live call until resolved.

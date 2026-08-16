@@ -20,7 +20,7 @@ This repository is a portable Agent Skill first and a thin client-packaging laye
 | --- | --- |
 | Copied endpoint catalog | The public API changes; canonical documentation should remain the source of truth |
 | Write or account workflows | They broaden risk and require credentials this public skill must never handle |
-| OpenAPI specification or Postman collection | Neither is currently published as a canonical public artifact |
+| Bundled OpenAPI specification or Postman collection | Canonical public artifacts are generated and published by the TweetAPI Dashboard contract pipeline; copying them into this repository would create drift |
 | `.app.json` | A ChatGPT app manifest requires a registered technical app identifier and a separate publication decision |
 | Codex or Claude marketplace listing | Marketplace submission is an external action and should follow review |
 | MCP Registry `server.json` | Registry publication describes the MCP service itself and should follow server metadata hardening |
@@ -41,6 +41,6 @@ After review and the annotation prerequisite:
 2. enable GitHub private vulnerability reporting and branch/tag protections;
 3. evaluate Codex, Claude, and other agent-skill marketplaces separately;
 4. evaluate MCP Registry publication for the hosted service;
-5. add an OpenAPI specification and Postman collection only when they have a maintained generation and validation workflow.
+5. keep the canonical OpenAPI and Postman links current when the Dashboard contract pipeline changes, without bundling duplicate copies here.
 
 None of those external actions are performed by this repository scaffold.

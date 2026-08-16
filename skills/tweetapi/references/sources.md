@@ -8,6 +8,9 @@ Read the narrowest source that answers the task. Recheck these sources when exac
 - Consolidated API documentation: <https://tweetapi.com/ai-docs-v2.txt>
 - Product overview: <https://tweetapi.com/docs/getting-started/overview>
 - Agent integration guide: <https://tweetapi.com/docs/getting-started/agents>
+- OpenAPI 3.0.3 specification: <https://tweetapi.com/openapi-v2.json>
+- Full Postman collection: <https://tweetapi.com/postman-v2.json>
+- Read-only Postman quick start: <https://tweetapi.com/postman-quickstart-v2.json>
 - Hosted MCP page: <https://tweetapi.com/mcp>
 - Hosted MCP endpoint: <https://mcp.tweetapi.com/mcp>
 - Node SDK: <https://github.com/tweetapi/node>
@@ -26,8 +29,10 @@ Treat `llms.txt` as the discovery index and `ai-docs-v2.txt` as the current mach
 - If public sources conflict, name the conflict and ask the user before making a live request.
 - If a source cannot be reached, say what could not be verified and avoid presenting remembered details as current.
 
-## Artifacts that are not currently canonical
+## Public contract artifacts
 
-The current public index does not advertise a public OpenAPI specification or public Postman collection. Do not invent URLs for either artifact. Recheck the public index before making this claim in future work.
+The OpenAPI document is the canonical public contract for the customer-facing `/tw-v2` API. The full Postman collection is generated from that OpenAPI document rather than maintained independently. The read-only quick start is a deliberately smaller onboarding collection for safe public-data requests.
 
-The public API documentation also describes write, account, and private-data capabilities. Those remain outside this skill even when their documentation is public.
+Use these published artifacts directly; do not copy them into this skill or edit generated copies. Recheck the documentation index and the URLs above when exact contract availability matters.
+
+The OpenAPI document, full Postman collection, and public API documentation also describe write, account, and private-data capabilities. Those remain outside this skill even when their contracts are public. The read-only quick start does not expand the hosted MCP tool allowlist.
