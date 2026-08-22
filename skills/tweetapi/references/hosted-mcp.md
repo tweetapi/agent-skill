@@ -40,7 +40,7 @@ Use a documentation-only prompt first:
 
 This checks tool discovery without consuming data quota.
 
-## Make a bounded live lookup
+## Limit live lookups
 
 Before invoking a live tool:
 
@@ -56,4 +56,4 @@ Never use MCP tools for posting, engagement, follows, profile changes, direct me
 
 If OAuth fails, direct the user to the TweetAPI dashboard and agent integration guide. Do not ask the user to paste an API key, Twitter cookie, password, token, or session value into the chat.
 
-If the client does not support remote OAuth MCP servers, use a server-side REST integration instead. Do not downgrade to exposing credentials in prompts or client configuration.
+If the client does not support remote OAuth MCP servers, use a server-side REST integration. Do not put credentials in prompts or client configuration.

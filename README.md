@@ -1,16 +1,16 @@
 # TweetAPI Agent Skill
 
-Use TweetAPI safely from Codex, Claude Code, Cursor, and other Agent Skills-compatible coding agents.
+Use TweetAPI to retrieve public Twitter/X data from Codex, Claude Code, Cursor, and other Agent Skills-compatible coding agents.
 
 This repository contains:
 
-- a portable, read-only Agent Skill for integrating public Twitter/X data;
+- a portable Agent Skill for read-only public Twitter/X data;
 - optional Codex and Claude Code plugin metadata;
 - configuration for TweetAPI's OAuth-protected hosted MCP server.
 
 Installing the skill does not create a TweetAPI account, connect the MCP server, consume quota, or make API requests. Connect the hosted MCP separately when you want live public data.
 
-This repository deliberately covers public Twitter/X data and documentation only. It does not support posting, engagement, account sessions, profile changes, direct messages, login automation, billing, or administration.
+This repository covers public Twitter/X data and documentation only. It does not support posting, engagement, account sessions, profile changes, direct messages, login automation, billing, or administration.
 
 TweetAPI is a third-party service and is not affiliated with X Corp.
 
@@ -31,7 +31,7 @@ gh skill preview tweetapi/agent-skill tweetapi
 gh skill install tweetapi/agent-skill tweetapi --agent codex --scope project
 ```
 
-Use `--scope user` for a user-wide installation. Replace `codex` with another supported agent, such as `claude-code` or `cursor`, when appropriate.
+Use `--scope user` for a user-wide installation. Replace `codex` with the supported agent you use, such as `claude-code` or `cursor`.
 
 The repository also includes Codex and Claude Code plugin manifests plus a remote MCP configuration. Plugin hosts should prompt for OAuth authorization; no TweetAPI key belongs in a prompt or repository file.
 
@@ -74,7 +74,7 @@ Read the complete workflow in [`skills/tweetapi/SKILL.md`](skills/tweetapi/SKILL
 - `.claude-plugin/plugin.json`: Claude Code plugin metadata
 - `.mcp.json`: hosted TweetAPI MCP connection
 - `scripts/validate_repository.py`: local packaging and safety checks
-- `docs/design-decisions.md`: included and intentionally deferred packaging
+- `docs/design-decisions.md`: packaging decisions and deferred distribution work
 
 ## Validate
 
@@ -85,9 +85,9 @@ agentskills validate skills/tweetapi
 
 The continuous-integration workflow runs both checks without making a live TweetAPI request.
 
-## Current source policy
+## Source policy
 
-The skill links to canonical public documentation and contract artifacts rather than copying an endpoint catalog. TweetAPI publishes a maintained OpenAPI specification, a full Postman collection generated from that specification, and a separate read-only Postman quick start. Their current URLs and boundaries live in `skills/tweetapi/references/sources.md`.
+Endpoint details change, so the skill does not copy the catalog. It links to TweetAPI's public documentation, maintained OpenAPI specification, generated full Postman collection, and smaller read-only Postman quick start. `skills/tweetapi/references/sources.md` lists their canonical URLs and explains the boundaries of each source.
 
 ## License
 

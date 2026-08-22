@@ -1,41 +1,41 @@
 # Design decisions
 
-This repository is a portable Agent Skill first and a thin client-packaging layer second. It does not duplicate the TweetAPI service or private MCP implementation.
+The Agent Skill is the core of this repository. The remaining files package it for supported clients. The repository does not contain the TweetAPI service or the private hosted MCP implementation.
 
-## Included in the first version
-
-| Artifact | Reason |
-| --- | --- |
-| `skills/tweetapi/` | Portable skill format supported by multiple coding agents |
-| `agents/openai.yaml` | OpenAI skill presentation and hosted MCP dependency |
-| `.codex-plugin/plugin.json` | Current Codex plugin packaging for repository distribution |
-| `.claude-plugin/plugin.json` | Claude Code plugin discovery without a separate repository |
-| `.mcp.json` | Secret-free remote OAuth MCP connection for compatible hosts |
-| Validation script and CI | Detect packaging errors, placeholders, broken local links, and obvious secrets |
-| MIT license and contribution/security policies | Minimum public-repository operating surface |
-
-## Intentionally excluded
+## Included files
 
 | Artifact | Reason |
 | --- | --- |
-| Copied endpoint catalog | The public API changes; canonical documentation should remain the source of truth |
-| Write or account workflows | They broaden risk and require credentials this public skill must never handle |
-| Bundled OpenAPI specification or Postman collection | Canonical public artifacts are generated and published by the TweetAPI Dashboard contract pipeline; copying them into this repository would create drift |
+| `skills/tweetapi/` | Skill instructions that multiple coding agents can use |
+| `agents/openai.yaml` | OpenAI display metadata and hosted MCP dependency |
+| `.codex-plugin/plugin.json` | Codex plugin metadata for repository installation |
+| `.claude-plugin/plugin.json` | Claude Code plugin metadata in the same repository |
+| `.mcp.json` | Remote OAuth MCP connection with no embedded secret |
+| Validation script and CI | Checks for packaging errors, placeholders, broken local links, and obvious secrets |
+| MIT license and contribution/security policies | License, contribution rules, and vulnerability-reporting instructions |
+
+## Not included
+
+| Artifact | Reason |
+| --- | --- |
+| Copied endpoint catalog | The public API changes, so the skill links to the canonical documentation |
+| Write or account workflows | This skill is read-only and must not handle the credentials those workflows need |
+| Bundled OpenAPI specification or Postman collection | The TweetAPI Dashboard contract pipeline generates and publishes these artifacts; a copy here would drift |
 | `.app.json` | A ChatGPT app manifest requires a registered technical app identifier and a separate publication decision |
 | Codex or Claude marketplace listing | Marketplace submission is an external action and should follow review |
 | MCP Registry `server.json` | Registry publication describes the MCP service itself and should follow server metadata hardening |
 | Project-local Cursor configuration | Cloning a repository should not silently attach a remote service to an unrelated project |
-| Live integration tests | They spend customer quota and introduce credentials into CI |
+| Live integration tests | They spend customer quota and put credentials in CI |
 
 ## Publication prerequisite
 
-Before broad promotion, verify that every hosted MCP tool registers MCP protocol `ToolAnnotations`: set `readOnlyHint` to `true`, `destructiveHint` to `false`, and `openWorldHint` to `true` for tools that read external Twitter/X data or public web documentation.
+Before promoting the repository, verify `ToolAnnotations` on every hosted MCP tool that reads external Twitter/X data or public web documentation. Set `readOnlyHint` to `true`, `destructiveHint` to `false`, and `openWorldHint` to `true`.
 
-Annotations are descriptive hints, not an authorization boundary. The server-side allowlist and credential isolation must remain the enforcement mechanism.
+Annotations describe behavior; they are not an authorization boundary. The server-side allowlist and credential isolation must remain the enforcement mechanism.
 
-## Later distribution opportunities
+## Possible distribution work
 
-After review and the annotation prerequisite:
+After review and annotation verification:
 
 1. publish this repository and verify `gh skill preview` and `gh skill install`;
 2. enable GitHub private vulnerability reporting and branch/tag protections;
@@ -43,4 +43,4 @@ After review and the annotation prerequisite:
 4. evaluate MCP Registry publication for the hosted service;
 5. keep the canonical OpenAPI and Postman links current when the Dashboard contract pipeline changes, without bundling duplicate copies here.
 
-None of those external actions are performed by this repository scaffold.
+This repository does not perform any of those external actions.

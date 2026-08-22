@@ -1,7 +1,7 @@
 {
   "name": "tweetapi",
-  "version": "0.1.0",
-  "description": "Safe read-only TweetAPI workflows for public Twitter/X data and application integrations.",
+  "version": "0.1.1",
+  "description": "Use TweetAPI for read-only public Twitter/X lookups and server-side application integration.",
   "author": {
     "name": "TweetAPI",
     "url": "https://tweetapi.com"
@@ -21,8 +21,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "TweetAPI",
-    "shortDescription": "Safe read-only Twitter data workflows",
-    "longDescription": "Use current TweetAPI documentation and bounded public Twitter/X lookups without exposing account credentials.",
+    "shortDescription": "Read public Twitter/X data with TweetAPI",
+    "longDescription": "Read current TweetAPI documentation, make one-page public Twitter/X lookups through OAuth, or add server-side reads to an application.",
     "developerName": "TweetAPI",
     "category": "Productivity",
     "capabilities": [
@@ -33,7 +33,7 @@
     "termsOfServiceURL": "https://tweetapi.com/terms",
     "defaultPrompt": [
       "Find the current read-only endpoint for a public profile.",
-      "Add a bounded server-side TweetAPI lookup to this project.",
+      "Add a one-page server-side TweetAPI lookup to this project.",
       "Inspect TweetAPI docs without making a live data request."
     ]
   }

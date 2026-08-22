@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions should preserve the repository's narrow read-only scope and avoid creating a second, drift-prone API catalog.
+Keep contributions within the repository's read-only scope. Link to the canonical API catalog instead of copying it here, where it would drift.
 
 ## Before changing the skill
 
@@ -8,7 +8,7 @@ Contributions should preserve the repository's narrow read-only scope and avoid 
 2. Keep live data calls, pagination, and retries opt-in and bounded.
 3. Keep all account, write, private-message, login, billing, and administrative operations out of scope.
 4. Do not add API keys, cookies, tokens, passwords, proxy credentials, real private data, or live-response fixtures.
-5. Do not make a live TweetAPI request merely to test documentation or packaging changes.
+5. Do not make a live TweetAPI request to test documentation or packaging changes.
 
 ## Validate locally
 
