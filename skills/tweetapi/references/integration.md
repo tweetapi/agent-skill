@@ -60,4 +60,4 @@ Never loop until the cursor is empty without a separate hard limit.
 
 Use <https://tweetapi.com/openapi-v2.json> for contract-aware tooling or client generation. The full Postman collection at <https://tweetapi.com/postman-v2.json> is generated from that OpenAPI document, and <https://tweetapi.com/postman-quickstart-v2.json> provides a smaller read-only onboarding collection.
 
-Do not generate clients from a guessed or copied schema. The published contract covers the wider customer-facing `/tw-v2` API, including operations outside this skill's read-only boundary, so select operations deliberately and keep authentication, quota, error, and partial-response handling explicit.
+Do not generate clients from a guessed or copied schema. The published contract covers the full customer-facing `/tw-v2` API, including operations outside this skill's read-only boundary. Select only read-only operations. Handle authentication, quota, errors, and partial responses explicitly.

@@ -31,7 +31,7 @@ Treat `llms.txt` as the discovery index and `ai-docs-v2.txt` as the current mach
 
 ## Public contract artifacts
 
-The OpenAPI document is the canonical public contract for the customer-facing `/tw-v2` API. The full Postman collection is generated from that OpenAPI document rather than maintained independently. The read-only quick start is a deliberately smaller onboarding collection for safe public-data requests.
+The OpenAPI document is the canonical public contract for the customer-facing `/tw-v2` API. The full Postman collection is generated from that OpenAPI document rather than maintained independently. The read-only quick start is a smaller onboarding collection for public-data requests.
 
 Use these published artifacts directly; do not copy them into this skill or edit generated copies. Recheck the documentation index and the URLs above when exact contract availability matters.
 

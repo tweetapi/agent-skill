@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "tweetapi",
   "displayName": "TweetAPI",
-  "version": "0.1.0",
-  "description": "Safe read-only TweetAPI workflows for public Twitter/X data.",
+  "version": "0.1.1",
+  "description": "Use TweetAPI for read-only public Twitter/X lookups and server-side application integration.",
   "author": {
     "name": "TweetAPI",
     "url": "https://tweetapi.com"

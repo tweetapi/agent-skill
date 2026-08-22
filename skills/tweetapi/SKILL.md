@@ -1,11 +1,11 @@
 ---
 name: tweetapi
-description: Integrate TweetAPI or use its hosted MCP server for bounded, read-only access to public Twitter/X data. Use for public profile, tweet, search, list, community, space, relationship, and documentation lookups, or for adding safe server-side TweetAPI reads to an application. Exclude posting, engagement, account access, private messages, login automation, billing, and administration.
+description: Use TweetAPI or its hosted MCP server for read-only public Twitter/X data. Use for public profile, tweet, search, list, community, space, relationship, and documentation lookups, or to add server-side TweetAPI reads to an application. Do not use for posting, engagement, account access, private messages, login automation, billing, or administration.
 ---
 
 # TweetAPI read-only workflows
 
-Use TweetAPI for public Twitter/X data while keeping the operation read-only, credentials server-side, and quota use explicit.
+Retrieve public Twitter/X data without changing accounts or content. Keep credentials server-side and tell the user before spending quota.
 
 ## Enforce the safety boundary
 
@@ -18,11 +18,11 @@ Use TweetAPI for public Twitter/X data while keeping the operation read-only, cr
 - Treat the HTTP method as insufficient evidence of safety. Confirm the operation's effect and required fields.
 - Do not claim affiliation with X Corp. TweetAPI is a third-party service.
 
-If a requested task crosses this boundary, explain the excluded action and offer a read-only alternative. Do not weaken the boundary merely because the wider TweetAPI product supports more operations.
+If a requested task crosses this boundary, explain the excluded action and offer a read-only alternative. The wider TweetAPI product supports more operations, but they remain outside this skill.
 
 ## Choose an execution path
 
-Use the hosted MCP server when the user wants an agent to inspect documentation or make a bounded public-data lookup. Prefer its OAuth flow so no API key enters the conversation. Read [references/hosted-mcp.md](references/hosted-mcp.md) before configuring a client or invoking a live tool.
+Use the hosted MCP server when the user wants an agent to inspect documentation or make a public-data lookup under the quota and pagination rules below. Prefer its OAuth flow so no API key enters the conversation. Read [references/hosted-mcp.md](references/hosted-mcp.md) before configuring a client or invoking a live tool.
 
 Use server-side REST or an official SDK when modifying an application. Read [references/integration.md](references/integration.md) before writing integration code.
 
@@ -37,7 +37,7 @@ For documentation-only questions, read the canonical public sources without maki
 5. State before a live request that it consumes quota.
 6. Make at most one live tool call and retrieve one page by default.
 7. Return any pagination cursor instead of following it automatically. Ask before another page.
-8. Treat only HTTP 2xx responses as success. Surface authentication, quota, and validation failures clearly.
+8. Treat only HTTP 2xx responses as success. Report authentication, quota, and validation failures clearly.
 9. Validate application changes with mocks or fixtures. Do not spend live quota during setup or tests unless the user explicitly authorizes it.
 
 ## Control quota and pagination
@@ -46,8 +46,8 @@ Every live data request consumes quota. Retries and subsequent pages can consume
 
 - Do not auto-paginate.
 - Do not silently retry a live request.
-- Do not run a live “smoke test” merely to prove configuration.
-- Stop after the first page and expose the returned cursor.
+- Do not run a live "smoke test" to prove configuration.
+- Stop after the first page and return its cursor.
 - If the user explicitly requests multi-page application behavior, implement a configurable maximum for pages, items, and total requests. Never use an unbounded pagination helper.
 
 ## Protect credentials
@@ -60,6 +60,6 @@ Every live data request consumes quota. Retries and subsequent pages can consume
 
 ## Preserve source accuracy
 
-The public product documentation and contract artifacts cover a wider product than this skill. Do not infer that every OpenAPI operation or Postman request is allowed here. Use only the canonical artifact URLs in the sources reference, and do not invent an alternative URL, SDK method, or MCP tool name.
+The public product documentation and contract artifacts include operations outside this skill. Do not assume that every OpenAPI operation or Postman request is allowed here. Use only the canonical artifact URLs in the sources reference. Do not invent an alternative URL, SDK method, or MCP tool name.
 
 When sources disagree, report the conflict and avoid a live call until resolved.
