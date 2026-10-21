@@ -11,6 +11,7 @@ Read the narrowest source that answers the task. Recheck these sources when exac
 - OpenAPI 3.0.3 specification: <https://tweetapi.com/openapi-v2.json>
 - Full Postman collection: <https://tweetapi.com/postman-v2.json>
 - Read-only Postman quick start: <https://tweetapi.com/postman-quickstart-v2.json>
+- Machine-readable pricing, unit costs, and billing rules: <https://tweetapi.com/pricing.json>
 - Hosted MCP page: <https://tweetapi.com/mcp>
 - Hosted MCP endpoint: <https://mcp.tweetapi.com/mcp>
 - Node SDK: <https://github.com/tweetapi/node>
@@ -18,7 +19,7 @@ Read the narrowest source that answers the task. Recheck these sources when exac
 - Privacy policy: <https://tweetapi.com/privacy>
 - Terms of service: <https://tweetapi.com/terms>
 
-Treat `llms.txt` as the discovery index and `ai-docs-v2.txt` as the current machine-readable documentation bundle. Prefer the endpoint's public documentation page when it contains more specific constraints.
+Treat `llms.txt` as the discovery index and `ai-docs-v2.txt` as the current machine-readable documentation bundle. Answer price, plan, and unit-cost questions from `pricing.json` rather than remembered figures. Prefer the endpoint's public documentation page when it contains more specific constraints.
 
 ## Source rules
 
